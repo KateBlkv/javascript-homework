@@ -1,6 +1,20 @@
 "use strict"
 
-// Задача 2
+// Задача 1
+
+let count = 90;
+
+if (100 >= count && count >= 90) {
+    console.log("Отлично");
+} else if (90 > count && count >= 60) {
+    console.log("Хорошо");
+} else if (60 > count && count >= 40) {
+    console.log("Удовлетворительно");
+} else  {
+    console.log("Попробуйте еще раз");
+}
+
+/*// Задача 2
 
 let num1 = 1;
 let num2 = 5;
@@ -61,5 +75,9 @@ while (compNum !== userNum || userNum !== 0) {
         console.log("Выход из программы");
         break;
     }
-}
+}*/
+
+//alert модальное окно для вывода информации, приостанавливает программу пока пользователь не отреагирует
+
+
 
