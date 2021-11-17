@@ -86,9 +86,12 @@ let goods = {
         img: "https://picsum.photos/id/163/1000"
     }
 };
+console.log(Object.keys(goods));
 
 let cardSection = document.querySelector(".cards-section");
 // values создал массив с объектами
+let i = 0;
+let idGoods = Object.keys(goods);
 Object.values(goods).forEach((obj) => {
     let card = document.createElement("div");
     card.classList.add("card");
@@ -105,20 +108,52 @@ Object.values(goods).forEach((obj) => {
 
     let count = document.createElement("div");
     count.classList.add("card__count-info");
+   /* count.id = idGoods[i];*/
     if (obj.count) { //  если 0, то false, проверки на отр число нет, при отриц будет  true
         //innerHTML - для вставки html определяет теги
         //всегда ПЕРЕЗАПИСЬ
+
         count.innerHTML = `
-        <button>-</button>
+        <button id="${idGoods[i]}">-</button>
         <span>0</span>
-        <button>+</button>
+        <button id="${idGoods[i]}">+</button>
         `;
     } else {
         count.innerHTML = "<span>Нет в наличии</span>";
     }
     card.append(title, img, price, count);
     cardSection.append(card);
+    i++;
 })
+
+let counter = {};
+for (let key of Object.keys(goods)) {
+    counter[key] = 0;
+}
+console.log(counter)
+let buttonsMinus = document.querySelectorAll(
+    ".card__count-info button:first-child");
+let buttonsPlus = document.querySelectorAll(
+    ".card__count-info button:last-child");
+for (let buttonMinus of buttonsMinus) {
+    buttonMinus.addEventListener('click', countMinus);
+}
+for (let buttonPlus of buttonsPlus) {
+    buttonPlus.addEventListener('click', countPlus);
+}
+function countMinus() {
+    if (counter[this.id] > 0) {
+        counter[this.id]--;
+        this.nextElementSibling.innerText = counter[this.id];
+    }
+}
+function countPlus() {
+   if (counter[this.id] < goods[this.id].count) {
+        counter[this.id]++;
+       this.previousElementSibling.innerText = counter[this.id];
+    }
+}
+
 
 // books-section: отобразить информацию о книгах
 /*
@@ -248,7 +283,7 @@ function addBooks(booksArr, element) {
             <span> ${item.title}</span> название книги
             <img class="card__image" src=${item.img}>
             <p>${item.description}</p> 
-            <a>Читать</a>
+            <a href="#">Читать</a>
             `;
 
             bookDiv.append(article);
