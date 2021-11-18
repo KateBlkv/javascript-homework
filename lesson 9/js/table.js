@@ -89,3 +89,73 @@ function generateTable(arr) {
 generateTable(goods)
 generateTable(articles)
 
+//Вывести в html информацию о животных. В html вместо
+// значений true / false выводить: Есть / Нет
+
+let animals = [
+    {
+        "name": "Люся",
+        "age": "1 год",
+        "color": "трехцветная",
+        "additional_info": {"vaccinations": true, "passport": true}
+    },
+    {
+        "name": "Том",
+        "age": "3 месяца",
+        "color": "белый",
+        "additional_info": {"vaccinations": false, "passport": false}
+    },
+    {
+        "name": "Макс",
+        "age": 2,
+        "color": "серый",
+        "additional_info": {"vaccinations": false, "passport": true}
+    },
+    {
+        "name": "Василий",
+        "age": 3,
+        "color": "черный",
+        "additional_info": {"vaccinations": true, "passport": true}
+    }
+];
+
+let animalSection = document.querySelector(".animalBlock");
+console.log(animals);
+
+for (let animal of animals) {
+    let card = document.createElement("div");
+    card.classList.add("card1");
+    card.innerHTML = `
+        <p>Имя: ${animal.name}</p>
+        <p>Возраст: ${animal.age}</p>
+        <p>Цвет: ${animal.color}</p>
+        <p>Дополнительная информация:</p>
+    `;
+    let vacInfo = document.createElement("p");
+    if (animal.additional_info.vaccinations === true) {
+        vacInfo.innerText = "Вакцинация: есть";
+    } else {
+        vacInfo.innerText = "Вакцинация: нет";
+    }
+    let passportInfo = document.createElement("p");
+    if (animal.additional_info.passport === true) {
+        passportInfo.innerText = "Паспорт: есть";
+    } else {
+        passportInfo.innerText = "Паспорт: нет";
+    }
+    card.append(vacInfo,passportInfo);
+    animalSection.append(card);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
