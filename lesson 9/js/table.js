@@ -147,15 +147,83 @@ for (let animal of animals) {
     animalSection.append(card);
 }
 
+// Написать функцию generateField(n) по генерации поля размером n x n.
+// Значение n не может быть меньше 3. Для 3х ячеек поля (для выбора ячейки
+// использовать random) добавить атрибут prise. Значение атрибута prise -
+// значение из объекта prises. Пример того, что должно получиться при генерации
+// поля 4 Х 4 на изображении field.png.
+//
+//   let prises = {
+//      headphones: "Наушники",
+//      book: "Книга",
+//      postcard: "Открытка"
+//   };
+
+let fieldSection = document.querySelector(".field");
+function generateField(n) {
+    let table = document.createElement('table');
+    table.classList.add("priseTable");
+
+    let priseFields = [];
+    while (priseFields.length < 3) {
+        let x = Math.floor(Math.random() * (n*n-1));
+        if (!priseFields.includes(x)) priseFields.push(x);
+    }
+
+    console.log(priseFields);
+    let j = 0;
+    for (let i = 0; i < n; i++) {
+
+        let row = table.insertRow();
+        for (let i = 0; i < n; i++) {
+            let cell = row.insertCell();
+            cell.id = j;
+            if (priseFields.includes(j)) {
+                cell.setAttribute("data-prise", "true");
+                /*cell.innerText = "prise";*/
+            }
+            j++;
+        }
+    }
 
 
+// Adding the entire table to the body tag
+    document.querySelector(".field").append(table);
+}
 
+generateField(4);
 
+/*let priseFields = [];
+function getRandom(n) {
+    while (priseFields.length < 3) {
+        let row = Math.floor(Math.random() * 3);
+        let column = Math.floor(Math.random() * 3);
+        let cell = [row, column];
+        let alreadyExist = false;
+        for (let priseField of priseFields) {
+            if (priseField[0] === row && priseField[1] === column) {
+                alreadyExist = true;
+                break;
+            }
+        }
+        if (!alreadyExist) {
+            priseFields.push(cell);
+        }
+    }
+}*/
 
+/*
+getRandom(3);
+console.log(priseFields);
 
+function selectCell(row, column)
+{
+    var currentSelection = document.querySelector('.table1 td[selected]'); //Находим текущую выделенную ячейку
+    if(currentSelection)currentSelection.removeAttribute('selected'); //если найдена то снимаем выделение
 
-
-
-
+    var newSelection = document.querySelector('.table1').rows[row].cells[column - 1]; // находим строку и столбец
+    newSelection.setAttribute('selected', true); //Устанавливаем атрибут selected, который затем будем использовать в css для раскраски
+}
+*/
 
 
