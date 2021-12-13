@@ -1,0 +1,141 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+
+p {
+    margin: 0;
+}
+
+.form-wrap {
+    background-color: whitesmoke;
+    padding: 40px;
+    box-shadow: 0 0 20px -10px black;
+    border-radius: 15px;
+    width: fit-content;
+
+}
+
+.form-wrap h3 {
+    margin-top: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+}
+
+/*main {
+    padding: 1rem 0;
+}*/
+.date {
+    align-items: center;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: auto;
+    flex-grow: 1;
+}
+
+
+
+.gap {
+    gap: 1.5rem;
+}
+.noGap {
+    gap: 0;
+}
+.marginL {
+    margin-left: 1.5rem;
+}
+.marginT {
+    margin-top: .5rem;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+}
+
+.col-12 {
+    /*-ms-flex: 0 0 100%;*/
+    /*flex: 0 0 100%;*/
+    max-width: 100%;
+}
+
+.title {
+    /*-ms-flex: 0 0 50%;*/
+    /* flex: 0 0 50%;*/
+    width: 120px;
+}
+
+.paddingL {
+    padding-left: calc(120px + 1.5rem);
+}
+
+.div-h {
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+
+}
+.message {
+    font-size: 13px;
+    min-width: 55%;
+    color: red;
+
+}
+
+#msg1 {
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+}
+
+#msg2 {
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+}
+
+#msg3 {
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+}
+
+
+.div-form {
+    width: 600px;
+}
+
+.div-input {
+    position: relative;
+}
+
+#added {
+    font-size: large;
+    color: green;
+    margin-bottom: 10px;
+    margin-top: 0;
+
+}
+

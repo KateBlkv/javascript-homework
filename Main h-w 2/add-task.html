@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="ccs/form.css">
+</head>
+<body>
+
+<main class="main">
+    <div class="form-wrap flex-column div-form">
+        <h6 class="success" id="added"></h6>
+        <h3>Добавить запись</h3>
+        <form class="flex-column gap" name="taskForm" novalidate ><!--action="#" method="get"-->
+            <div class="flex-row category wrap div-input">
+                <p class="title">Название задачи:</p>
+                <input class="marginL" type="text" name="task" placeholder="Введите название задачи" value=""
+                       minlength="1" maxlength="20" required>
+                <span class="message paddingL" id="msg1"></span>
+            </div>
+            <div class="flex-row comment gap div-input">
+                <p class="title">Описание задачи:</p>
+                <textarea name="description" id="comment" placeholder="Введите описание" cols="30" rows="5"></textarea>
+                <span class="message paddingL" id="msg2"></span>
+            </div>
+            <div class="flex-row date wrap div-input">
+                <p class="title">Дата:</p>
+                <input class="marginL" type="date" name="date">
+                <span class="message paddingL" id="msg3"></span>
+            </div>
+            <div class="flex-row button paddingL ">
+                <button type="submit" name="button">Добавить</button>
+            </div>
+        </form>
+    </div>
+</main>
+<script src="js/form.js"></script>
+</body>
+</html>

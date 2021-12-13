@@ -1,0 +1,13 @@
+.card {
+    border: 2px solid rgba(158, 72, 161, 0.69);
+    background-color: #d39cdc;
+    border-radius: 10px;
+    padding-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card.active {
+    border: 2px solid rgba(36, 103, 168, 0.8);
+    background-color: rgba(82, 129, 175, 0.73);
+}
